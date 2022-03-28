@@ -120,7 +120,7 @@ export default class PageManager {
     this.updateButtons = document.querySelectorAll('.update-button');
   }
 
-  pullFromStorage = () => {
+  getFromStorage = () => {
     const tasksObj = JSON.parse(localStorage.getItem(this.storageKeyTaskList));
     Object.values(tasksObj).forEach((task) => {
       const index = this.taskList.length + 1;
@@ -169,7 +169,7 @@ export default class PageManager {
   pageSetup = () => {
     // checks local storage and adds content to page if available
     if (localStorage.storageTaskList !== undefined) {
-      this.pullFromStorage();
+      this.getFromStorage();
       this.loadTasksFromClass();
     }
     this.addButton.addEventListener('click', () => {
